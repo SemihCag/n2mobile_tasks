@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'tabler';
+  src:  url('../fonts/tabler/tabler.eot?u67gnc');
+  src:  url('../fonts/tabler/tabler.eot?u67gnc#iefix') format('embedded-opentype'),
+    url('../fonts/tabler/tabler.ttf?u67gnc') format('truetype'),
+    url('../fonts/tabler/tabler.woff?u67gnc') format('woff'),
+    url('../fonts/tabler/tabler.svg?u67gnc#tabler') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tabler' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  font-size: 24px;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tabler-building-skyscraper:before {
+  content: "\e900";
+}
+.tabler-checkup-list-1:before {
+  content: "\e901";
+}
+.tabler-checkup-list:before {
+  content: "\e902";
+}
+.tabler-logout:before {
+  content: "\e903";
+}
+.tabler-map-pin-heart:before {
+  content: "\e904";
+}
+.tabler-notebook-1:before {
+  content: "\e905";
+}
+.tabler-notebook:before {
+  content: "\e906";
+}
+.tabler-photo-heart-1:before {
+  content: "\e907";
+}
+.tabler-photo-heart:before {
+  content: "\e908";
+}
+.tabler-square-rounded-arrow-left:before {
+  content: "\e909";
+}
+.tabler-square-rounded-arrow-right:before {
+  content: "\e90a";
+}
+.tabler-square-rounded-x:before {
+  content: "\e90b";
+}
+.tabler-user-circle:before {
+  content: "\e90c";
+}
+.tabler-users:before {
+  content: "\e90d";
+}
+.tabler-world-share:before {
+  content: "\e90e";
+}

@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+        font-family: "Poppins", system-ui;
+    }
+
+    body {
+        @apply max-h-screen;
+        @apply h-screen;
+    }
+
+    h1{
+        @apply font-semibold;
+        @apply text-xl;
+    }
+
+    h2{
+        @apply text-lg;
+        @apply text-title;
+        @apply font-medium;
+    }
+
+    span{
+        @apply text-sm;
+        @apply text-subtitle;
+
+    }
+}
+
+@layer components {
+    .router-link-active::before {
+        content: '';
+        @apply h-10;
+        @apply w-1.5;
+        @apply bg-primary;
+        @apply rounded-r-md;
+    }
+}
