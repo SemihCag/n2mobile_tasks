@@ -1,0 +1,44 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django specific files
+*.log
+*.sqlite3
+*.db
+*.pot
+*.pyc
+*.pyo
+
+# Django migrations
+*/migrations/*
+!*/migrations/__init__.py
+
+# Environment variables
+.env
+*.env
+
+# Static files
+/static/
+media/
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# MacOS files
+.DS_Store
+
+# IDEs
+.idea/
+*.iml
+
+# Jupyter Notebook files
+.ipynb_checkpoints
+*.ipynb
+
+# Other
+*.egg-info/
+dist/
+build/

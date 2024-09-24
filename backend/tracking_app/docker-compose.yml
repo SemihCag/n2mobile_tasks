@@ -1,0 +1,42 @@
+services:
+  db:
+    image: postgres:14
+    environment:
+      - POSTGRES_USER=n2mobile_user
+      - POSTGRES_PASSWORD=n2mobile_pass
+      - POSTGRES_DB=n2mobile_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - migrate
+
+  make_migrations:
+    build: .
+    command: python manage.py makemigrations
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+  
+  migrate:
+    build: .
+    command: python manage.py migrate
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+      - make_migrations
+
+volumes:
+  postgres_data:
