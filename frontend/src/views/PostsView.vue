@@ -1,6 +1,7 @@
 <script setup>
   import Breadcrumb from '@/components/Breadcrumb.vue';
 import PostCard from '@/components/PostCard.vue';
+import PostPopup from '@/components/PostPopup.vue';
   import { usePostsStore } from '@/stores/requests/posts';
   import { onMounted } from 'vue';
   import { useRouter } from 'vue-router';

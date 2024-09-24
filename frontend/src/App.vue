@@ -3,6 +3,7 @@
   import { useRouter } from 'vue-router'
   import { usePopupStore } from './stores/popup';
   import { watch } from 'vue';
+import PostPopup from './components/PostPopup.vue';
 
   const popup = usePopupStore();
   const router = useRouter();
@@ -25,10 +26,9 @@
     <RouterView />
   </main>
 
-  <!-- v-show="popup.status" -->
-  <!-- <div class="absolute flex justify-center items-center w-full h-full bg-black[.7]">
-    <div class="bg-white w-1/2 h-1/2">
-      
+  <div class="absolute flex justify-center items-center w-full h-full bg-popup" v-if="popup.status">
+    <div class="bg-white w-3/4 h-1/2 rounded-3xl p-5 overflow-hidden">
+      <PostPopup></PostPopup>
     </div>
-  </div> -->
+  </div>
 </template>

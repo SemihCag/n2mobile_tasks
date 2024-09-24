@@ -1,13 +1,15 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import axios from 'axios';
 
 export const usePopupStore = defineStore('popup', () => {
   const status = ref(false);
+  const postId = ref(0);
 
-  async function setStatus(statusVal) {
+  function setStatus(statusVal, postNo = 0) {
     status.value = statusVal;
+    postId.value = postNo;
   }
 
-  return { status, setStatus }
+
+  return { status, postId, setStatus }
 })

@@ -26,6 +26,7 @@ export default {
         title: 'rgba(38, 48, 62, 1)',
         border: 'rgba(216, 217, 221, 1)',
         brand: 'rgba(72, 91, 105, 1)',
+        popup: 'rgba(49, 62, 80, 0.4)'
       }
     }
   },

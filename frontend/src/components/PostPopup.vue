@@ -1,24 +1,41 @@
 <script setup>
+  import { usePopupStore } from '@/stores/popup';
+  import { usePostStore } from '@/stores/requests/post';
+  import { useCommentsStore } from '@/stores/requests/comments';
+  import { onMounted } from 'vue';
+  import { useRoute, useRouter } from 'vue-router';
+import CommentCard from './CommentCard.vue';
 
-import { usePopupStore } from '@/stores/popup';
+  const route = useRoute();
+  const popupStore = usePopupStore()
+  const postStore = usePostStore();
+  const commentsStore = useCommentsStore();
+  onMounted(() => {
+    postStore.getPost(popupStore.postId);
+    commentsStore.getComments(popupStore.postId);
+  })
 
-  const props = defineProps({
-    post: {
-      type: Object,
-      required: false
-    }
-  });
-  const popup = usePopupStore()
+  function clearPopupData(){
+    postStore.post = {};
+    commentsStore.comments = [];
+  }
 </script>
 
 <template>
-  <div class="flex flex-col gap-y-4 px-6 py-4 border-b border-border">
-    <h2 class="capitalize">{{ props.post.title }}</h2>
-    <p class="w-1/2 text-sm text-black/[.7] capitalize">{{ props.post.body }}</p>
-    <div class="flex justify-end">
-      <div class="flex items-center gap-6 hover:cursor-pointer" @click="popup.setStatus(true)">
-        <span class="text-title">See More</span>
-        <i class="tabler-square-rounded-arrow-right text-primary text-3xl"></i>
+  <div class="flex justify-between h-fill">
+    <h2 class="text-2xl font-medium capitalize">{{ postStore.post.title }}</h2>
+    <i class="tabler-square-rounded-x hover:cursor-pointer" @click="popupStore.setStatus(false); clearPopupData();"></i>
+  </div>
+  <div class="w-full h-full flex">
+    <div class="w-1/2 h-full overflow-y-auto p-3 border-r border-border">
+      <p class="text-sm font-normal text-black/[0.7]">
+        {{ postStore.post.body }}
+      </p>
+    </div>
+    <div class="w-1/2 p-3">
+      <h2>Comments</h2>
+      <div class="flex flex-col gap-6 mt-3 h-full overflow-y-auto">
+        <CommentCard v-for="comment in commentsStore.comments" :comment="comment"></CommentCard>
       </div>
     </div>
   </div>

@@ -16,7 +16,7 @@ import { usePopupStore } from '@/stores/popup';
     <h2 class="capitalize">{{ props.post.title }}</h2>
     <p class="w-1/2 text-sm text-black/[.7] capitalize">{{ props.post.body }}</p>
     <div class="flex justify-end">
-      <div class="flex items-center gap-6 hover:cursor-pointer" @click="popup.setStatus(true)">
+      <div class="flex items-center gap-6 hover:cursor-pointer" @click="popup.setStatus(true, props.post.id); ">
         <span class="text-title">See More</span>
         <i class="tabler-square-rounded-arrow-right text-primary text-3xl"></i>
       </div>
